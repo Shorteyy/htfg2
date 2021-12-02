@@ -155,3 +155,5 @@ explore: taxi_rides {
     relationship: many_to_one
   }
 }
+
+explore: test {}
