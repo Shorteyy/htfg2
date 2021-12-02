@@ -28,4 +28,19 @@ view: financial_status {
     type: count
     drill_fields: [id]
   }
+
+  measure: debtSum {
+    type: sum
+    drill_fields: [debt]
+  }
+
+  measure: netSum {
+    type: sum
+    drill_fields: [net_worth]
+  }
+
+  measure: brutoSum {
+    type: sum
+    drill_fields: [bruto_income]
+  }
 }
