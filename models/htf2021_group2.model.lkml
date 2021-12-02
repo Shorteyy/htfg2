@@ -32,7 +32,18 @@ explore: bnbcheckins {
 
 explore: appearance {}
 
-explore: bnbreservations {}
+explore: bnbreservations {
+  join: people {
+    type: left_outer
+    sql_on: ${bnbreservations.person_id} = ${people.id};;
+    relationship: one_to_one
+  }
+  join: aib_bnbs_nyc {
+    type: left_outer
+    sql_on: ${bnbreservations.bnbid} = ${aib_bnbs_nyc.id};;
+    relationship: one_to_one
+  }
+}
 
 explore: company_employees {
   join: people {
