@@ -1,10 +1,15 @@
 view: test {
   derived_table: {
-    sql: SELECT People.ID, SUM(Debt) AS debtSum, SUM(BrutoIncome) AS brutoSum, SUM(NetWorth) AS netSum, People.FirstName, People.LastName FROM FinancialStatus
+    sql: SELECT People.ID AS ID, SUM(Debt) AS debtSum, SUM(BrutoIncome) AS brutoSum, SUM(NetWorth) AS netSum, People.FirstName, People.LastName FROM FinancialStatus
       JOIN People on FinancialStatus.ID = People.ID
       GROUP BY People.FirstName, People.LastName, People.ID
       ORDER BY debtSum
        ;;
+  }
+
+  measure: ID {
+    type: number
+    sql: ${TABLE}.ID ;;
   }
 
   measure: count {
