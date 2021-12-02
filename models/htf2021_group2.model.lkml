@@ -156,4 +156,4 @@ explore: taxi_rides {
   }
 }
 
-explore: test {}
+explore: financialsum {}

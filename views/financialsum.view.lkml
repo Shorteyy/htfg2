@@ -1,4 +1,4 @@
-view: work {
+view: financialsum {
   derived_table: {
     sql: SELECT People.ID AS ID, SUM(Debt) AS debtSum, SUM(BrutoIncome) AS brutoSum, SUM(NetWorth) AS netSum, People.FirstName, People.LastName FROM FinancialStatus
       JOIN People on FinancialStatus.ID = People.ID
