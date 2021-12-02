@@ -1,9 +1,8 @@
 view: test {
   derived_table: {
-    sql: SELECT SUM(Debt) AS debtSum, SUM(BrutoIncome) AS brutoSum, SUM(NetWorth) AS netSum, People.FirstName, People.LastName FROM FinancialStatus
+    sql: SELECT People.ID, SUM(Debt) AS debtSum, SUM(BrutoIncome) AS brutoSum, SUM(NetWorth) AS netSum, People.FirstName, People.LastName FROM FinancialStatus
       JOIN People on FinancialStatus.ID = People.ID
-      WHERE (People.ID ) IN (59,70,51,34,15,67,57,47)
-      GROUP BY People.FirstName, People.LastName
+      GROUP BY People.FirstName, People.LastName, People.ID
       ORDER BY debtSum
        ;;
   }
