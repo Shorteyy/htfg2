@@ -100,11 +100,6 @@ explore: ride_info {
     sql_on: ${financial_status.id} = ${people.id};;
     relationship: one_to_one
   }
-  join: roles {
-    type: left_outer
-    sql_on: ${roles.job_id} = ${people.id};;
-    relationship: one_to_one
-  }
 }
 
 explore: people {
@@ -131,6 +126,11 @@ explore: people {
   join: financial_status {
     type: left_outer
     sql_on: ${financial_status.id} = ${people.id};;
+    relationship: one_to_one
+  }
+  join: roles {
+    type: left_outer
+    sql_on: ${roles.job_id} = ${people.id};;
     relationship: one_to_one
   }
 }
