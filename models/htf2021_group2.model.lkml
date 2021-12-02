@@ -34,7 +34,27 @@ explore: appearance {}
 
 explore: bnbreservations {}
 
-explore: company_employees {}
+explore: company_employees {
+  join: people {
+    type: left_outer
+    sql_on: ${company_employees.id} = ${people.id};;
+    relationship: one_to_one
+  }
+  join: sub_departments {
+    type: left_outer
+    sql_on: ${company_employees.sub_department} = ${sub_departments.id_1};;
+    relationship: one_to_one
+  }
+  join: companies {
+    type: left_outer
+    sql_on: ${companies.id} = ${sub_departments.id};;
+    relationship: one_to_one
+  }
+  join: roles {
+    type: left_outer
+    sql_on: ${roles.job_id} = ${people.id};;
+    relationship: one_to_one
+  }}
 
 explore: aib_bnbs_nyc {}
 
