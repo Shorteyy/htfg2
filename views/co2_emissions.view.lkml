@@ -21,4 +21,10 @@ view: co2_emissions {
     type: count
     drill_fields: []
   }
+
+  measure: averageco2 {
+    type: average_distinct
+    sql_distinct_key: ${country_id} ;;
+    sql: ${metricton_per_citizen} ;;
+  }
 }
