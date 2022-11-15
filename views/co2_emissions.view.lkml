@@ -23,8 +23,7 @@ view: co2_emissions {
   }
 
   measure: averageco2 {
-    type: average_distinct
-    sql_distinct_key: ${country_id} ;;
+    type: average
     sql: ${metricton_per_citizen} ;;
   }
 }

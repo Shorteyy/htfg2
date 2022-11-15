@@ -1,6 +1,5 @@
 view: forest_coverage_mha {
-  sql_table_name: `sustainability.forest_coverage_mha`
-    ;;
+  sql_table_name: `sustainability.forest_coverage_mha`;;
 
   dimension: country_id {
     type: number
@@ -30,5 +29,30 @@ view: forest_coverage_mha {
   measure: count {
     type: count
     drill_fields: []
+  }
+  measure: sumStableForest {
+    type: sum
+    sql: ${stable_forest} ;;
+    }
+
+  measure: sumLoss {
+    type: sum
+    sql: ${loss} ;;
+  }
+
+  measure: sumGain {
+    type: sum
+    sql: ${gain} ;;
+  }
+
+  measure: total_gain_or_loss {
+    type: sum
+    sql: ${gain} - ${loss} ;;
+  }
+
+
+  measure: sumDisturbed {
+    type: sum
+    sql: ${disturbed} ;;
   }
 }

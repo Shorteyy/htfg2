@@ -26,4 +26,24 @@ view: energy_sources {
     type: count
     drill_fields: []
   }
+
+
+  measure: energy_prod_by_fossil {
+    type: sum
+    sql: ${fossil_fuels} ;;
+  }
+  measure: energy_prod_by_renewable {
+    type: sum
+    sql: ${renewable} ;;
+  }
+  measure: energy_prod_by_nuclear {
+    type: sum
+    sql: ${nuclear} ;;
+  }
+
+  measure: total_gain_or_loss_renewable_energy {
+    type: sum
+    sql: ${renewable} - ${fossil_fuels} ;;
+  }
+
 }
